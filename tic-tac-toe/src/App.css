@@ -1,9 +1,15 @@
-.btn-custom{
-    width: 20vw;
-    height: 200px;
+.custom-container{
+    width: 150px;
+    height: 150px;
+    margin: 10px;
 }
 
-.row-custom{
-    margin-top: 30px;
-    padding-bottom: 30px;
+.vertical-center{
+    display: flex;
+    align-items: center;
+}
+
+.full-height{
+    height: 100vh;
+    width: 100vw;
 }

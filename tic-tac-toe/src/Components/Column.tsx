@@ -1,7 +1,7 @@
 function Column(){
     return <>
-        <div className="col">
-            <button type="button" className="btn btn-light btn-custom"></button>
+        <div className="custom-container">
+            <button type="button" className="btn btn-light w-100 h-100"></button>
         </div>
     </>;
 }

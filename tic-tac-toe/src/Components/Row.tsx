@@ -3,7 +3,7 @@ import Column from "./Column";
 function Row() {
   return (
     <>
-      <div className="row row-custom">
+      <div className="container d-flex justify-content-center">
         <Column></Column>
         <Column></Column>
         <Column></Column>
