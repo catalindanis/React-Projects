@@ -1,5 +1,11 @@
 import { useState } from "react";
-import getCurrentMove from "../Config/Move";
+import {
+  getCurrentTurn,
+  changeTurn,
+  getId,
+  isMarked,
+  setMarked,
+} from "../Config/Game";
 
 function Column() {
   let [value, setValue] = useState(-1);
@@ -9,6 +15,7 @@ function Column() {
       <div className="custom-container">
         <button
           type="button"
+          id={getId().toString()}
           className={
             value === -1
               ? "btn w-100 h-100 btn-light"
@@ -16,8 +23,8 @@ function Column() {
               ? "btn w-100 h-100 btn-danger"
               : "btn w-100 h-100 btn-success"
           }
-          onClick={() => {
-            setValue(getCurrentMove());
+          onClick={(e) => {
+            markTurn(e.currentTarget.id, setValue);
           }}
         ></button>
       </div>
@@ -26,3 +33,13 @@ function Column() {
 }
 
 export default Column;
+
+function markTurn(
+  position: string,
+  setValue: React.Dispatch<React.SetStateAction<number>>
+) {
+  if (isMarked(position)) return;
+  setValue(getCurrentTurn());
+  setMarked(position,getCurrentTurn());
+  changeTurn();
+}
