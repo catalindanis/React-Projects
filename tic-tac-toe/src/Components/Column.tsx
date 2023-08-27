@@ -1,11 +1,5 @@
 import { useState } from "react";
-import {
-  getCurrentTurn,
-  changeTurn,
-  getId,
-  isMarked,
-  setMarked,
-} from "../Config/Game";
+import { getCurrentTurn, getId, isMarked, setMarked } from "../Config/Game";
 
 function Column() {
   let [value, setValue] = useState(-1);
@@ -40,6 +34,5 @@ function markTurn(
 ) {
   if (isMarked(position)) return;
   setValue(getCurrentTurn());
-  setMarked(position,getCurrentTurn());
-  changeTurn();
+  setMarked(position);
 }
