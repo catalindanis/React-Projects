@@ -1,4 +1,5 @@
 let table: number[] = [-1, -1, -1, -1, -1, -1, -1, -1, -1];
+
 export const isMarked = (position: string) => {
   if (table[Number(position) - 1] === -1) return false;
   return true;
@@ -6,10 +7,6 @@ export const isMarked = (position: string) => {
 
 export const setMarked = (position: string) => {
   table[Number(position) - 1] = getCurrentTurn();
-  const winner = winnerFound();
-  if (winner != -1) {
-    console.log(winner);
-  }
   changeTurn();
 };
 
@@ -27,7 +24,7 @@ export const getId = () => {
   return ++currentId / 2;
 };
 
-function winnerFound() {
+export const winnerFound = () => {
   let v: number[] = [-1, -1, -1];
 
   //check winner on rows
@@ -50,7 +47,11 @@ function winnerFound() {
   if (v[0] === v[1] && v[1] === v[2] && v[0] != -1) return v[0];
 
   return -1;
-}
+};
+
+export const resetTable = () => {
+  for (let i = 1; i <= 9; i++) document.getElementById(String(i))?.click();
+};
 
 function showTable() {
   let message = "";
