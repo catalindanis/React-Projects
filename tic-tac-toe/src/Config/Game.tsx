@@ -1,13 +1,20 @@
 let table: number[] = [-1, -1, -1, -1, -1, -1, -1, -1, -1];
+export let RESET = false;
 
 export const isMarked = (position: string) => {
-  if (table[Number(position) - 1] === -1) return false;
+  if (table[Number(position)] === -1) return false;
   return true;
 };
 
 export const setMarked = (position: string) => {
-  table[Number(position) - 1] = getCurrentTurn();
+  table[Number(position)] = getCurrentTurn();
   changeTurn();
+  if (winnerFound() != -1) {
+    setTimeout(() => {
+      alert("NICE!")
+      resetTable();
+    },1000)
+  }
 };
 
 let currentTurn = 1;
@@ -17,11 +24,6 @@ export const getCurrentTurn = () => {
 
 export const changeTurn = () => {
   currentTurn = currentTurn === 0 ? 1 : 0;
-};
-
-let currentId = 0;
-export const getId = () => {
-  return ++currentId / 2;
 };
 
 export const winnerFound = () => {
@@ -50,14 +52,10 @@ export const winnerFound = () => {
 };
 
 export const resetTable = () => {
-  for (let i = 1; i <= 9; i++) document.getElementById(String(i))?.click();
-};
-
-function showTable() {
-  let message = "";
-  for (let i = 0; i < 3; i++) {
-    for (let j = 0; j < 3; j++) message += table[3 * i + j] + " ";
-    message += "\n";
+  RESET = true;
+  for (let i = 0; i < 9; i++) {
+    (document.getElementById(String(i)) as HTMLFormElement).click();
+    table[i] = -1;
   }
-  console.log(message);
-}
+  RESET = false;
+};

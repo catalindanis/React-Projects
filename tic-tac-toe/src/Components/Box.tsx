@@ -1,33 +1,37 @@
-import React from "react";
 import { useState } from "react";
+import { RESET, getCurrentTurn, isMarked, setMarked } from "../Config/Game";
 
-interface boxProps {
-  [value, setValue]: 
-  id: string;
-  handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-}
-
-export const Box = (props: boxProps) => {
-  let [cell, setCell] = props.value;
+function Box(prop: { id: string }) {
+  let [value, setValue] = useState(-1);
 
   return (
     <>
       <div className="custom-container">
         <button
           type="button"
-          id={props.id}
+          key={prop.id}
+          id={prop.id}
           className={
-            cell === "-1"
+            value === -1
               ? "btn w-100 h-100 btn-light"
-              : cell === "1"
+              : value === 0
               ? "btn w-100 h-100 btn-danger"
               : "btn w-100 h-100 btn-success"
           }
-          onClick={props.handleClick}
+          onClick={(e) => {
+            if (RESET) {
+              setValue(-1);
+              return;
+            }
+            if (isMarked(e.currentTarget.id)) return;
+
+            setValue(getCurrentTurn());
+            setMarked(e.currentTarget.id);
+          }}
         ></button>
       </div>
     </>
   );
-};
+}
 
 export default Box;
