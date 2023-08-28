@@ -1,7 +1,8 @@
 let table: number[] = [-1, -1, -1, -1, -1, -1, -1, -1, -1];
 export let RESET = false;
-export let CHANGE = false;
+export let CHANGE_TURN = false;
 export let DISABLED = false;
+export let CHANGE_SCORE = false;
 let nrOfMoves = 0;
 
 export const isMarked = (position: string) => {
@@ -29,10 +30,10 @@ export const getCurrentTurn = () => {
 };
 
 export const changeTurn = () => {
-  CHANGE = true;
+  CHANGE_TURN = true;
   currentTurn = currentTurn === 0 ? 1 : 0;
   (document.getElementById("turn") as HTMLFormElement).click();
-  CHANGE = false;
+  CHANGE_TURN = false;
 };
 
 export const winnerFound = () => {
@@ -72,6 +73,7 @@ export const winnerFound = () => {
 
   if (winner) {
     animateWin(p);
+    updateScore(v[0]);
     return 1;
   } else if (nrOfMoves === 9) {
     animateWin([0, 1, 2, 3, 4, 5, 6, 7, 8]);
@@ -92,6 +94,21 @@ function animateWin(position: number[]) {
         document.getElementById(String(position[i])) as HTMLFormElement
       ).style.animation = "";
   }, 1000);
+}
+
+function updateScore(winner: number){
+  CHANGE_SCORE = true;
+  switch(winner){
+    case 0:
+      //red wins
+      (document.getElementById("red") as HTMLFormElement).click();
+      break;
+    case 1:
+      //green wins
+      (document.getElementById("green") as HTMLFormElement).click();
+      break;
+  }
+  CHANGE_SCORE = false;
 }
 
 export const resetTable = () => {

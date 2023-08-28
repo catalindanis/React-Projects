@@ -1,10 +1,10 @@
 import { useState } from "react";
 import GameTable from "./Components/GameTable";
-import { CHANGE, getCurrentTurn } from "./Config/Game";
+import { CHANGE_SCORE, CHANGE_TURN, getCurrentTurn } from "./Config/Game";
 
 function App() {
-  let [player1, setPlayer1] = useState(0);
-  let [player2, setPlayer2] = useState(0);
+  let [red, setRed] = useState(0);
+  let [green, setGreen] = useState(0);
   let [turn, setTurn] = useState(getCurrentTurn());
 
   return (
@@ -17,14 +17,30 @@ function App() {
             className={turn === 1 ? "green" : "red"}
             id="turn"
             onClick={() => {
-              if (CHANGE) setTurn(turn === 1 ? 0 : 1);
+              if (CHANGE_TURN) setTurn(turn === 1 ? 0 : 1);
             }}
           >
             {turn === 1 ? "Green's turn." : "Red's turn."}
           </h2>
           <div className="container text-center score">
-            <h2 className="red">Red : {player1}</h2>
-            <h2 className="green">Green : {player2}</h2>
+            <h2
+              className="red"
+              id="red"
+              onClick={() => {
+                if (CHANGE_SCORE) setRed(red + 1);
+              }}
+            >
+              Red : {red}
+            </h2>
+            <h2
+              className="green"
+              id="green"
+              onClick={() => {
+                if (CHANGE_SCORE) setGreen(green + 1);
+              }}
+            >
+              Green : {green}
+            </h2>
           </div>
           <div className="container text-center menu">
             <button type="button" className="btn btn-secondary btn-custom">
