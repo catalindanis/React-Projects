@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { RESET, getCurrentTurn, isMarked, setMarked } from "../Config/Game";
+import { DISABLED, RESET, getCurrentTurn, isMarked, setMarked } from "../Config/Game";
 
 function Box(prop: { id: string }) {
   let [value, setValue] = useState(-1);
@@ -19,12 +19,14 @@ function Box(prop: { id: string }) {
               : "btn w-100 h-100 btn-success"
           }
           onClick={(e) => {
+
             if (RESET) {
               setValue(-1);
               return;
             }
             if (isMarked(e.currentTarget.id)) return;
 
+            if(!DISABLED)
             setValue(getCurrentTurn());
             setMarked(e.currentTarget.id);
           }}
