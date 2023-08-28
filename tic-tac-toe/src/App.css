@@ -31,3 +31,9 @@
     margin-left: auto; 
     color: #48A14D;
 }
+
+.btn-custom{
+    margin: 20px;
+    height: 100px;
+    width: 250px;
+}
