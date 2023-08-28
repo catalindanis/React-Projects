@@ -1,6 +1,6 @@
 import { useState } from "react";
 import GameTable from "./Components/GameTable";
-import { CHANGE_SCORE, CHANGE_TURN, getCurrentTurn } from "./Config/Game";
+import { CHANGE_SCORE, CHANGE_TURN, getCurrentTurn, resetTable, resetTableHandler } from "./Config/Game";
 
 function App() {
   let [red, setRed] = useState(0);
@@ -43,10 +43,15 @@ function App() {
             </h2>
           </div>
           <div className="container text-center menu">
-            <button type="button" className="btn btn-secondary btn-custom">
+            <button type="button" className="btn btn-secondary btn-custom" onClick={() => {
+              resetTableHandler();
+            }}>
               <h3>Reset Table</h3>
             </button>
-            <button type="button" className="btn btn-warning btn-custom">
+            <button type="button" className="btn btn-warning btn-custom" onClick={() => {
+              setRed(0);
+              setGreen(0);
+            }}>
               <h3>Reset Score</h3>
             </button>
           </div>

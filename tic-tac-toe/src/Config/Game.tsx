@@ -96,9 +96,9 @@ function animateWin(position: number[]) {
   }, 1000);
 }
 
-function updateScore(winner: number){
+function updateScore(winner: number) {
   CHANGE_SCORE = true;
-  switch(winner){
+  switch (winner) {
     case 0:
       //red wins
       (document.getElementById("red") as HTMLFormElement).click();
@@ -112,6 +112,17 @@ function updateScore(winner: number){
 }
 
 export const resetTable = () => {
+  nrOfMoves = 0;
+  RESET = true;
+  for (let i = 0; i < 9; i++) {
+    (document.getElementById(String(i)) as HTMLFormElement).click();
+    table[i] = -1;
+  }
+  RESET = false;
+};
+
+export const resetTableHandler = () => {
+  animateWin([0, 1, 2, 3, 4, 5, 6, 7, 8]);
   nrOfMoves = 0;
   RESET = true;
   for (let i = 0; i < 9; i++) {
