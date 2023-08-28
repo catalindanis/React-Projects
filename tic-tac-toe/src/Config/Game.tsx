@@ -11,9 +11,8 @@ export const setMarked = (position: string) => {
   changeTurn();
   if (winnerFound() != -1) {
     setTimeout(() => {
-      alert("NICE!")
       resetTable();
-    },1000)
+    },500)
   }
 };
 

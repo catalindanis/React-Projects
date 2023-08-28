@@ -10,6 +10,24 @@
 }
 
 .full-height{
+    padding-top: 100px;
     height: 100vh;
     width: 100vw;
+}
+
+.score{
+    margin-top: 50px;
+    display: flex;
+    width: 50vw;
+    text-align: center;
+}
+
+.red{
+    color: #B33F40;
+    
+}
+
+.green{
+    margin-left: auto; 
+    color: #48A14D;
 }
