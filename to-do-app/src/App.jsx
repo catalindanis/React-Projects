@@ -8,9 +8,13 @@ function App() {
     <>
       <div clasName="container-fluid">
         <div className="container m-auto">
-          <div className="text-center"><h1>Task-list</h1></div>
+          <div className="text-center">
+            <h1>Task-list</h1>
+          </div>
           <ul class="list-group">
-            <li class="list-group-item custom-item"><Task></Task></li>
+            <li class="list-group-item custom-item">
+              <Task></Task>
+            </li>
           </ul>
         </div>
       </div>
