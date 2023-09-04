@@ -10,16 +10,16 @@
 }
 
 .custom-container{
-    width: 30em;
+    width: 33em;
     background-color: white;
     border: 1px solid gray;
     border-radius: 5px;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
 }
 
 .custom-button{
-    margin-top: 10px;
+    margin-top: 20px;
     height: 85px;
     width: 65%;
     font-size: 25px;

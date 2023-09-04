@@ -11,7 +11,7 @@ function AddTask() {
             <h1 className="form-title">Description</h1>
             <input type="text" className="w-100" />
            </div>
-           <button type="button" className="btn btn-primary custom-button">Add Task</button>
+           <button type="button" className="btn btn-warning custom-button"><h3>Add task</h3></button>
         </div>
       </div>
     </>

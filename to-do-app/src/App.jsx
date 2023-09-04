@@ -17,6 +17,11 @@ function App() {
               <Task></Task>
             </li>
           </ul>
+          <div className="text-center">
+            <button type="button" id="1" className="btn btn-dark w-50 custom-button">
+              <h4>Add task</h4>
+            </button>
+          </div>
         </div>
         <AddTask></AddTask>
       </div>
