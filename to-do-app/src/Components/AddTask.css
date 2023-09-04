@@ -10,8 +10,22 @@
 }
 
 .custom-container{
+    width: 30em;
     background-color: white;
     border: 1px solid gray;
     border-radius: 5px;
+    padding: 10px;
+    text-align: center;
 }
 
+.custom-button{
+    margin-top: 10px;
+    height: 85px;
+    width: 65%;
+    font-size: 25px;
+    
+}
+
+.form-title{
+    text-align: left;
+}
