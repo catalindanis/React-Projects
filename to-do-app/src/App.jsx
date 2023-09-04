@@ -2,6 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import Task from "./Components/Task";
+import AddTask from "./Components/AddTask";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             </li>
           </ul>
         </div>
+        <AddTask></AddTask>
       </div>
     </>
   );
