@@ -1,6 +1,8 @@
 .custom-pos{
     position: absolute;
-    
+    top: 0;
+    bottom: 0;
+    margin: auto;
 }
 
 .custom-pos:nth-child(1){
@@ -11,16 +13,15 @@
     right: 2%;
 }
 
+.custom-size{
+    height: 4em;
+}
 
 .custom-size:nth-child(1){
-    width: 8%;                                                                  
+    width: 8%;                                                              
 }
 
 .custom-size:nth-child(2){
     width: 8%;
 }   
 
-.vertical-center{
-    border: 1px solid black;
-    top: 0px;
-}
