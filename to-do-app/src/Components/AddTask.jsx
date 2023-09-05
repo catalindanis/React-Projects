@@ -1,4 +1,5 @@
-import { task, currentTasks, modify } from "../App";
+import React from "react";
+import { task, currentTasks, updateList } from "../App";
 
 function AddTask() {
   return (
@@ -29,9 +30,8 @@ function AddTask() {
                 title: document.getElementById("title").value,
                 description: document.getElementById("description").value,
               });
-              
-
               closeWindow();
+              updateList();
             }}
           >
             <h3>Add task</h3>
