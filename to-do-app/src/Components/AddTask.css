@@ -7,6 +7,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    left: 0;
+    animation: load 0.2s;
 }
 
 .custom-container{
@@ -23,7 +25,6 @@
     height: 85px;
     width: 65%;
     font-size: 25px;
-    
 }
 
 .form-title{
@@ -31,8 +32,57 @@
 }
 
 .close-button{
+    border-radius: 3px;
     padding: 0 5px;
-    background-color: red;
-    border-radius: 5px;
-    position: absolute;
+    position: relative;
+    left: 29.3em;
+    bottom: 1em;
+    width: fit-content;
+}
+
+.disable-text{
+    pointer-events: none;
+}
+
+.custom-font{
+    font-size: 30px;
+}
+
+@keyframes load {
+    0%{
+        opacity: 0;
+    }
+    25%{
+        opacity: 0.25;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    75%{
+        opacity: 0.75;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes hide {
+    0%{
+        opacity: 1;
+        
+    }
+    25%{
+        opacity: 0.75;
+        
+    }
+    50%{
+        opacity: 0.5;
+    }
+    75%{
+        opacity: 0.25;
+    }
+    100%{
+        opacity: 0;
+        display: none;
+    }
 }

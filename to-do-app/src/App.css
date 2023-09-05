@@ -1,2 +1,9 @@
+body {
+    overflow: hidden;
+    margin: 0px;
+}
 
+#add-task{
+    display: none;
+}
 
