@@ -37,6 +37,7 @@ function App() {
                     <Task
                       title={item.title}
                       description={item.description}
+                      id={i}
                     ></Task>
                   </li>
                 );
