@@ -1,17 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import Task from "./Components/Task";
 import AddTask from "./Components/AddTask";
 
-export let task = {
-  title: "",
-  description: "",
-};
 
-let ADD = false;
-
-export let currentTasks = [];
+let UPDATE = false;
+let UPDATE_TITLE;
+let UPDATE_DESCRIPTION;
 
 function App() {
   const [tasksState, setTasksState] = useState([]);
@@ -27,13 +23,15 @@ function App() {
             id="list-group"
             className="list-group"
             onClick={() => {
-              if (ADD) setTasksState(currentTasks);
+              if (UPDATE) setTasksState((crr) => {
+                  return [...crr, {title: UPDATE_TITLE, description: UPDATE_DESCRIPTION}];
+              });
             }}
           >
             {tasksState.length == 0 ? (
               <h6 className="text-center">Tasks will be shown here</h6>
             ) : (
-              tasksState.map((item, i) => {
+              tasksState.map((item, i) => { 
                 return (
                   <li key={i} className="list-group-item custom-item">
                     <Task
@@ -51,7 +49,8 @@ function App() {
               id="1"
               className="btn btn-dark w-50 custom-button"
               onClick={() => {
-                document.getElementById("add-task").style.display = "block";
+                document.getElementById("add-task").style.display = "initial";
+                //document.getElementById("add-task").focus();
               }}
             >
               <h4>Add task</h4>
@@ -68,8 +67,10 @@ function App() {
 
 export default App;
 
-export function updateList() {
-  ADD = true;
+export function updateList(title, description) {
+  UPDATE = true;
+  UPDATE_TITLE = title;
+  UPDATE_DESCRIPTION = description;
   document.getElementById("list-group").click();
-  ADD = false;
+  UPDATE = false;
 }
