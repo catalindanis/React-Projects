@@ -3,7 +3,6 @@ import { updateList } from "../App";
 import { useState } from "react";
 
 function AddTask() {
-
   return (
     <>
       <div className="full-size">
@@ -28,9 +27,10 @@ function AddTask() {
             type="button"
             className="btn btn-warning custom-button"
             onClick={() => {
-              
               closeWindow();
               updateList(document.getElementById("title").value, document.getElementById("description").value);
+              document.getElementById("title").value = "";
+              document.getElementById("description").value = "";
             }}
           >
             <h3>Add task</h3>

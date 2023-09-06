@@ -33,7 +33,7 @@ function App() {
             ) : (
               tasksState.map((item, i) => { 
                 return (
-                  <li key={i} className="list-group-item custom-item">
+                  <li key={i} className="list-group-item custom-item border-1">
                     <Task
                       title={item.title}
                       description={item.description}
@@ -50,7 +50,7 @@ function App() {
               className="btn btn-dark w-50 custom-button"
               onClick={() => {
                 document.getElementById("add-task").style.display = "initial";
-                //document.getElementById("add-task").focus();
+                document.getElementById("add-task").focus();
               }}
             >
               <h4>Add task</h4>

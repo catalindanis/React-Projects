@@ -3,7 +3,7 @@ import React from "react";
 function Task(prop: { title: string; description: string }) {
   return (
     <>
-      <div className="container">
+      <div className="container custom-margin">
         <div className="row">
           <div className="col-10">
             <div className="w-50 text-break">
