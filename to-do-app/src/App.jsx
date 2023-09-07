@@ -40,9 +40,8 @@ function App() {
               if (DELETE) {
                 const arr = [];
                 tasksState.map((item) => {
-                  if(item.id != DELETE_ID)
-                    arr.push(item);
-                })
+                  if (item.id != DELETE_ID) arr.push(item);
+                });
                 console.log(arr);
                 setTasksState(arr);
               }

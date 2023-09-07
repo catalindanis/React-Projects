@@ -2,9 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { deleteItem } from "../App";
 
-function Task(prop: { title: string, description: string, itemId: string}) {
-
-  const [finished, setFinished] = useState("✓"); 
+function Task(prop: { title: string; description: string; itemId: string }) {
+  const [finished, setFinished] = useState("✓");
   const id = crypto.randomUUID();
 
   return (
@@ -24,9 +23,12 @@ function Task(prop: { title: string, description: string, itemId: string}) {
               type="button"
               className="btn btn-success custom-size custom-pos"
               onClick={() => {
-                if (document.getElementById(id)!.style.opacity == "1" || document.getElementById(id)!.style.opacity == "") {
+                if (
+                  document.getElementById(id)!.style.opacity == "1" ||
+                  document.getElementById(id)!.style.opacity == ""
+                ) {
                   document.getElementById(id)!.style.opacity = "0.6";
-                  setFinished("↺")
+                  setFinished("↺");
                 } else {
                   document.getElementById(id)!.style.opacity = "1";
                   setFinished("✓");
@@ -40,7 +42,7 @@ function Task(prop: { title: string, description: string, itemId: string}) {
             <button
               type="button"
               className="btn btn-danger custom-size custom-pos"
-              onClick={()=> {
+              onClick={() => {
                 deleteItem(prop.itemId);
               }}
             >

@@ -17,18 +17,21 @@ function AddTask() {
           </div>
           <div className="form-group">
             <h1 className="form-title">Title</h1>
-            <input id="title" type="text" className="w-100 custom-font"/>
+            <input id="title" type="text" className="w-100 custom-font" />
           </div>
           <div className="form-group">
             <h1 className="form-title">Description</h1>
-            <input id="description" type="text" className="w-100 custom-font"/>
+            <input id="description" type="text" className="w-100 custom-font" />
           </div>
           <button
             type="button"
             className="btn btn-warning custom-button"
             onClick={() => {
               closeWindow();
-              updateList(document.getElementById("title").value, document.getElementById("description").value);
+              updateList(
+                document.getElementById("title").value,
+                document.getElementById("description").value
+              );
               document.getElementById("title").value = "";
               document.getElementById("description").value = "";
             }}
