@@ -5,6 +5,7 @@ import "./App.css";
 
 function App() {
   const [displayWords, setDisplayWords] = useState(words);
+  const [filter, setFilter] = useState("");
 
   return (
     <>
@@ -12,14 +13,27 @@ function App() {
         <h2>Search filter</h2>
         <input
           type="text"
-          class="form-control w-75"
+          className="form-control w-75"
           placeholder="Enter the letters that will filter your list"
+          onChange={(e) => {
+            setFilter(e.target.value);
+          }}
         ></input>
 
         <div className="mt-5">
-          <ul class="list-group">
-            {displayWords.map((word) => {
-              return <li class="list-group-item">{word}</li>;
+          <ul className="list-group">
+            {
+            displayWords.filter(word => {
+              if(filter == "")
+                return word;
+              else if(word.toLowerCase().includes(filter.toLowerCase()))
+                return word;
+            }).map((word, i) => {
+              return (
+                <li key={i} className="list-group-item w-25">
+                  {word}
+                </li>
+              );
             })}
           </ul>
         </div>
