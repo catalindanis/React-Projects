@@ -8,11 +8,22 @@ function App() {
 
   return (
     <>
-      <ul class="list-group">
-        {displayWords.map((word) => {
-          return <li class="list-group-item">{word}</li>
-        })}
-      </ul>
+      <div className="m-5">
+        <h2>Search filter</h2>
+        <input
+          type="text"
+          class="form-control w-75"
+          placeholder="Enter the letters that will filter your list"
+        ></input>
+
+        <div className="mt-5">
+          <ul class="list-group">
+            {displayWords.map((word) => {
+              return <li class="list-group-item">{word}</li>;
+            })}
+          </ul>
+        </div>
+      </div>
     </>
   );
 }
