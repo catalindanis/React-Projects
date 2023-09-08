@@ -22,19 +22,19 @@ function App() {
 
         <div className="mt-5">
           <ul className="list-group">
-            {
-            displayWords.filter(word => {
-              if(filter == "")
-                return word;
-              else if(word.toLowerCase().includes(filter.toLowerCase()))
-                return word;
-            }).map((word, i) => {
-              return (
-                <li key={i} className="list-group-item w-25">
-                  {word}
-                </li>
-              );
-            })}
+            {displayWords
+              .filter((word) => {
+                if (filter == "") return word;
+                else if (word.toLowerCase().includes(filter.toLowerCase()))
+                  return word;
+              })
+              .map((word, i) => {
+                return (
+                  <li key={i} className="list-group-item w-25">
+                    {word}
+                  </li>
+                );
+              })}
           </ul>
         </div>
       </div>
