@@ -8,7 +8,7 @@ let TYPE = "register";
 function App() {
   const [title, setTitle] = useState("Register");
   const [message, setMessage] = useState("Already have an account? Sign in");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [submitMessage, setSubmitMessage] = useState("");
 
   return (
     <>
@@ -80,6 +80,7 @@ function App() {
                   document.getElementById("background").style.backgroundColor =
                     "tomato";
                 }
+                document.getElementById("errorMessage").style.display = "none";
               }}
             >
               <a>{message}</a>
@@ -92,19 +93,26 @@ function App() {
           onClick={() => {
             TYPE = title;
             const status = submitHandler();
-            if(status != "success"){
-              setErrorMessage(status);
-              document.getElementById("errorMessage").style.display="block";
+            if (status != "success") {
+              setSubmitMessage(status);
+            } else {
+              setSubmitMessage(getJSONFormat());
+              document.getElementById("background").style.display = "none";
+              document.getElementById("success").style.display = "block";
             }
 
+            document.getElementById("errorMessage").style.display = "block";
           }}
         >
           <b>{title}</b>
         </button>
         <div id="errorMessage" className="hide">
-          <h4>{errorMessage}</h4>
+          <h4>{submitMessage}</h4>
         </div>
       </div>
+      <p id="success" className="hide">
+        {submitMessage}
+      </p>
     </>
   );
 }
@@ -116,16 +124,31 @@ function submitHandler() {
   let email = document.getElementById("email")?.value;
   let password = document.getElementById("password")?.value;
   let gender = document.getElementById("gender")?.value;
-  
-  if(username == "" && TYPE == "Register")
-    return "Please enter an username!";
 
-  if(email == "")
+  if (username == "" && TYPE == "Register") return "Please enter an username!";
+
+  if (email == "")
     return "Please enter" + (TYPE == "Register" ? " an " : " your ") + "email!";
 
-  if(password == "")
-    return "Please enter" + (TYPE == "Register" ? " an " : " your ") + "password!";
+  if (password == "")
+    return (
+      "Please enter" + (TYPE == "Register" ? " an " : " your ") + "password!"
+    );
 
-  if(gender == "")
-    return "Please select an gender!";
+  if (gender == "") return "Please select an gender!";
+
+  return "success";
+}
+
+function getJSONFormat() {
+  let username = document.getElementById("username")?.value;
+  let email = document.getElementById("email")?.value;
+  let password = document.getElementById("password")?.value;
+  let gender = document.getElementById("gender")?.value;
+
+  if (TYPE == "Register") {
+    return `{type="${TYPE}", username="${username}", email="${email}", password="${password}", gender="${gender}"}`;
+  } else {
+    return `{type="${TYPE}", email="${email}", password="${password}"}`;
+  }
 }
