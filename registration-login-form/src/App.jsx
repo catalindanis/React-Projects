@@ -5,10 +5,11 @@ import "./App.css";
 
 function App() {
   const [title, setTitle] = useState("Register");
+  const [message, setMessage] = useState("Already have an account? Sign in");
 
   return (
     <>
-      <div className="custom-container center-align text-center">
+      <div className="custom-container center-align text-center" id="background">
         <h2 className="text-dark mt-4">Enter your credentials</h2>
         <div className="forms">
           {title === "Register" ? (
@@ -37,19 +38,37 @@ function App() {
               placeholder="Enter password"
             ></input>
           </div>
-          <div className="">
+          <div className="custom-container" id="form">
             {title === "Register" ? (
               <div className="gender-form m-4 custom-form left-align">
-                <select class="custom-select h-100">
-                  <option selected>Gender</option>
+                <select defaultValue={"0"} className="custom-select h-100">
+                  <option value="0" className="d-none">
+                    Gender
+                  </option>
                   <option value="1">Male</option>
                   <option value="2">Female</option>
                   <option value="3">Prefer not to say</option>
                 </select>
               </div>
             ) : null}{" "}
-            <p className="right-align">
-              <a href="">Test</a>
+            <p
+              className="test"
+              onClick={() => {
+                if (title === "Register") {
+                  setTitle("Login");
+                  setMessage("Don't have an account? Register now");
+                  document.getElementById("form").style.marginTop="50px";
+                  document.getElementById("background").style.backgroundColor="lightblue";
+                }
+                else {
+                  setTitle("Register");
+                  setMessage("Already have an account? Sign in");
+                  document.getElementById("form").style.marginTop="";
+                  document.getElementById("background").style.backgroundColor="tomato";
+                }
+              }}
+            >
+              <a>{message}</a>
             </p>
           </div>
         </div>

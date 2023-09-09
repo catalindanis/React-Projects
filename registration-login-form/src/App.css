@@ -2,6 +2,7 @@
   width: 40em;
   background-color:tomato;
   border-radius: 25px;
+  position: relative;
 }
 
 .center-align{
@@ -14,10 +15,6 @@
 
 .left-align{
   text-align: left;
-}
-
-.right-align{
-  text-align: right;
 }
 
 .custom-form{
@@ -34,5 +31,25 @@
 }
 
 .test{
+  position: absolute;
+  right: 30px;
+  bottom: 0;
+  width: fit-content;
+  
+}
+
+.border{
   border: 1px solid black;
+}
+
+h1,h2,h3,h4,h5,h6,a{
+  pointer-events: none;
+}
+
+p:hover{
+  text-decoration: underline;
+}
+
+.custom-container#form{
+  height: fit-content;
 }
