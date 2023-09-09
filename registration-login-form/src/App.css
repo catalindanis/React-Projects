@@ -53,3 +53,12 @@ p:hover{
 .custom-container#form{
   height: fit-content;
 }
+
+.hide{
+  display: none;
+}
+
+#errorMessage{
+  color: black;
+  margin-bottom: 15px;
+}
