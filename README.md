@@ -1,2 +1,3 @@
 # React-Projects
-Some small react projects using JavaScript, TypeScript and CSS.
+
+This repository contains some of my personal React projects.
